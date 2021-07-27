@@ -126,7 +126,6 @@ class Pagerfanta implements \Countable, \IteratorAggregate, \JsonSerializable, P
      * @return self
      *
      * @throws NotIntegerMaxPerPageException If the max per page is not an integer even converting.
-     * @throws LessThan1MaxPerPageException  If the max per page is less than 1.
      */
     public function setMaxPerPage($maxPerPage)
     {
@@ -148,10 +147,6 @@ class Pagerfanta implements \Countable, \IteratorAggregate, \JsonSerializable, P
     {
         if (!is_int($maxPerPage)) {
             throw new NotIntegerMaxPerPageException();
-        }
-
-        if ($maxPerPage < 1) {
-            throw new LessThan1MaxPerPageException();
         }
     }
 
